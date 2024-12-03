@@ -11,7 +11,7 @@ const UpdateCoffee = () => {
 
 
     e.preventDefault()
-    console.log("Update Coffee");
+    // console.log("Update Coffee");
 
     const form = e.target;
     const name = form.name.value;
@@ -23,9 +23,9 @@ const UpdateCoffee = () => {
     const photo = form.photo.value;
 
     const updatedCoffee = { name, chef, price, supplier, taste, details, photo }
-    console.log(updatedCoffee);
+    // console.log(updatedCoffee);
 
-    fetch(`http://localhost:5000/coffees/${_id}`, {
+    fetch(`https://coffee-house-server-iota.vercel.app/coffees/${_id}`, {
       method: "PUT",
       headers: {
         'content-type': 'application/json'
@@ -34,7 +34,7 @@ const UpdateCoffee = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Updated!",

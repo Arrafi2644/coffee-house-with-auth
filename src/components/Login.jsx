@@ -13,17 +13,17 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         const user = {email, password}
-        console.log(user);
+        // console.log(user);
 
         loginUser(email, password)
         .then(result => {
-            console.log(result);
+            // console.log(result);
             
             const lastSignInTime = result?.user?.metadata?.lastSignInTime;
-            console.log(lastSignInTime);
+            // console.log(lastSignInTime);
             const updatedInfo = {lastSignInTime, email}
 
-            fetch(`http://localhost:5000/users`, {
+            fetch(`https://coffee-house-server-iota.vercel.app/users`, {
                 method: "PATCH",
                 headers: {
                     'content-type' : 'application/json'
@@ -31,17 +31,17 @@ const Login = () => {
                 body: JSON.stringify(updatedInfo)
             })
             .then(result => {
-                console.log(result);
+                // console.log(result);
             })
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 
             })
 
             navigate('/')
         })
         .catch(error => {
-            console.log(error);
+            // console.log(error);
         })
     }
     return (

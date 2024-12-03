@@ -16,13 +16,13 @@ const SignUp = () => {
     const password = form.password.value;
 
     const user = {name, email}
-    console.log(user);
+    // console.log(user);
 
     signUpUser(email, password)
     .then(result => {
-        console.log(result);
+        // console.log(result);
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://coffee-house-server-iota.vercel.app/users', {
             method: "POST",
             headers: {
                 'content-type' : 'application/json'
@@ -31,7 +31,7 @@ const SignUp = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             if(data.insertedId){
                 Swal.fire({
                     title: 'Success!',
@@ -45,7 +45,7 @@ const SignUp = () => {
 
     })
     .catch(error => {
-        console.log(error);
+        // console.log(error);
     })
 
    

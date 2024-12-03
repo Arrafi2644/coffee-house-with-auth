@@ -16,9 +16,9 @@ const AddCoffee = () => {
   const photo = form.photo.value;
 
   const coffee = {name, chef, price, supplier, taste, details, photo}
-  console.log(coffee);
+  // console.log(coffee);
 
-  fetch('http://localhost:5000/coffees', {
+  fetch('https://coffee-house-server-iota.vercel.app/coffees', {
     method: "POST",
     headers: {
       'content-type': 'application/json'
@@ -27,7 +27,7 @@ const AddCoffee = () => {
   })
   .then(res => res.json())
   .then(data => {
-    console.log(data);
+    // console.log(data);
     if(data.insertedId){
       Swal.fire({
         title: "Added!",

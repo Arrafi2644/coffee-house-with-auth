@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const Users = () => {
     const loadedUsers = useLoaderData()
     const [users, setUsers] = useState(loadedUsers)
-    console.log(users);
+    // console.log(users);
 
     const handleDeleteUser = (_id) => {
 
@@ -21,12 +21,12 @@ const Users = () => {
           }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/users/${_id}`, {
+                fetch(`https://coffee-house-server-iota.vercel.app/users/${_id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     if(data.deletedCount > 0){
                         Swal.fire({
                             title: "Deleted!",

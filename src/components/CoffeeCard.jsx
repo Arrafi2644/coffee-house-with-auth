@@ -8,7 +8,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     const { _id, name, chef, price, supplier, taste, details, photo } = coffee
 
     const handleDeleteCoffee = (_id) => {
-        console.log("Delete", _id);
+        // console.log("Delete", _id);
         
         Swal.fire({
             title: "Are you sure?",
@@ -22,12 +22,12 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
             if (result.isConfirmed) {
 
 
-                fetch(`http://localhost:5000/coffees/${_id}`, {
+                fetch(`https://coffee-house-server-iota.vercel.app/coffees/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                         if (data.deletedCount > 0) {
                             // alert("Deleted successfully")
                             Swal.fire({
